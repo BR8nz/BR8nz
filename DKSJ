@@ -1,0 +1,335 @@
+const express = require('express');
+
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello Express app!')
+});
+
+app.listen(3000, () => {
+  console.log('server started');
+});
+
+const Discord = require('discord.js')
+const client = new Discord.Client()
+const ms = require("ms");
+const gif = require("gif-search");
+
+
+
+
+const prefix = "!";//// برفكس البوت او البادئه
+
+///كود الحاله
+client.on("ready", () =>{
+console.log(`${client.user.username} is Online `)
+client.user.setActivity(`حط الحاله`, {type:"PLAYING"})
+})
+
+/////كود الهيلب
+client.on("message", async message =>{
+ if(message.content === prefix + "help"){
+ const embed = new Discord.MessageEmbed()
+.setAuthor("اوامر البوت السرقات")
+.setThumbnail(message.author.avatarURL())
+.setColor("RANDOM")
+.setDescription(`
+
+\`${prefix}بنك\`:
+> -  عشان تسرق البنك
+
+\`${prefix}المجوهرات\`:
+> -  عشان تسرق المجوهرات
+
+\`${prefix}اسلحة\`:
+> -  عشان تسرق اسلحه
+
+\`${prefix}سرقة\`:
+> -  عشان تسرق شخص
+
+`)
+.setFooter(`https://discord.com/channels/1146667953333485638/1223879884229574716/1231543665193783316`)///تحط رابط الصوره السيرفر او الخط اذا كان عندك
+ message.channel.send(embed)
+ } 
+
+  
+/////كود سرقات
+if(message.content === prefix + "بنك"){
+  const f = [
+   "YF517P",
+  "V7181M",
+  "H710Y8",
+  "D171N8",
+  "S828Gm",
+  "TRQV71",
+    
+  ]
+  let fast = Math.floor(Math.random() * f.length)
+  const e= [
+   "لايوجد شي",
+    "💵 - 100﷼",
+    "💵 - 200﷼",
+  "💵 - 300﷼",
+  "💵 - 400﷼",
+  "💵 -500﷼",
+  "💵 - 600﷼",
+  "💵 - 700﷼",
+  "💵 - 800﷼",
+  "💵 - 900﷼",
+  "💵 - 1000﷼",
+  "💵 - 2000﷼",
+   "💵 - 3000﷼",
+   "💵 - 7000﷼",
+   "🔧 - فاتح اقفال",
+  "🔧 - فاتح اقفال متقدم",
+  "🔫 - pistol",
+   " - راديو",
+  "💳・بطاقة بقالة・",
+  "💳・بطاقة بنك",
+  "💳『・بطاقة محل مجوهرات・",
+  "・لايوجد شي ・",
+  
+    
+  ]
+  let fastt = Math.floor(Math.random() * e.length)
+  const embed = new Discord.MessageEmbed()
+ .setAuthor(client.user.username, client.user.avatarURL())
+ .setColor("random")
+.setDescription(`\`\`\`${f[fast]}\`\`\``)
+.setFooter(" عندك 15 ثانيه لفك الشفره")
+
+  message.channel.send(embed)
+ const filter = m => m.content.includes(f[fast]);
+message.channel.awaitMessages(filter, {
+          max: 1,
+          time: 15000,
+          errors: ['time'],
+        }) 
+
+.then((collected) => {
+const embed = new Discord.MessageEmbed()
+.setColor("#05ff14")
+.setDescription(`\`\`\`${e[fastt]}\`\`\``)
+.setFooter("✅ | تم السرقة بنجاح")
+message.channel.send(embed)
+})
+.catch(() => {
+const embed = new Discord.MessageEmbed()
+.setColor("RED") 
+.setDescription(`:x: | فشلت العمليه السرقة - لقد تم تحديد هويتك`)
+.setFooter(`المجرم: ${message.author.tag}`)
+message.channel.send(embed)
+  
+});    
+}
+
+if(message.content === prefix + "مجوهرات"){
+  const w = [
+  "IUO819",
+  "BA1T61",
+  "091GAB",
+  "81Ja18",
+  "9Q1p8n",
+  "372702"
+
+  ]
+  let wea = Math.floor(Math.random() * w.length)
+const v= [
+   "لايوجد شي",
+    "💵 - 100﷼",
+    "💵 - 200﷼",
+  "💵 - 300﷼",
+  "💵 - 400﷼",
+  "💵 -500﷼",
+  "💵 - 600﷼",
+  "💵 - 700﷼",
+  "💵 - 800﷼",
+  "💵 - 900﷼",
+  "💵 - 1000﷼",
+  "💵 - 2000﷼",
+   "💵 - 3000﷼",
+   "💵 - 7000﷼",
+  "💳『・بطاقة محل مجوهرات・",
+    "لايوجد شي",
+   "💎・ذهب ・",
+  "💎・ساعة・",
+   "💎・طقم ذهب・",
+   "💎・مجوهرات・",
+   "💎・ساعة・",
+  "・ لايوجد شي・",
+  "・ لايوجد شي・",
+  
+  
+
+  ]
+  let weaa = Math.floor(Math.random() * v.length)
+  const embed = new Discord.MessageEmbed()
+ .setAuthor(client.user.username, client.user.avatarURL())
+ .setColor("random")
+.setDescription(`\`\`\`${w[wea]}\`\`\``)
+.setFooter("لديك 15 ثانيه لكتابة الشفره")
+.setTimestamp()
+  message.channel.send(embed)
+ const filter = m => m.content.includes(w[wea]);
+message.channel.awaitMessages(filter, {
+          max: 1,
+          time: 15000,
+          errors: ['time'],
+        }) 
+
+.then((collected) => {
+const embed = new Discord.MessageEmbed()
+.setColor("#05ff14")
+.setDescription(`\`\`\`${v[weaa]}\`\`\``)
+.setFooter("✅ | تم السرقة بنجاح")
+message.channel.send(embed)
+})
+.catch(() => {
+const embed = new Discord.MessageEmbed()
+.setColor("RED") 
+.setDescription(`:x: | فشلت العمليه السرقة - لقد تم تحديد هويتك`)
+.setFooter(`المجرم: ${message.author.tag}`)
+message.channel.send(embed)
+});    
+}
+
+
+if(message.content === prefix + "اسلحة"){
+const s = [
+  "9201mn",
+  "91amz1",
+  "GVB128",
+  "182nbm",
+  "91Bza7",
+  "283841",
+
+  ]
+  let saz = Math.floor(Math.random() * s.length)
+const x = ["『・ لايوجد شي・』",
+   "لايوجد شي",
+    "💵 - 100﷼",
+    "💵 - 200﷼",
+  "💵 - 300﷼",
+  "💵 - 400﷼",
+  "💵 -500﷼",
+  "💵 - 600﷼",
+  "💵 - 700﷼",
+  "💵 - 800﷼",
+  "💵 - 900﷼",
+  "💵 - 1000﷼",
+  "💵 - 2000﷼",
+   "💵 - 3000﷼",
+   "💵 - 7000﷼",
+   "🔧 - فاتح اقفال",
+  "🔧 - فاتح اقفال متقدم",
+  "🔫 - pistol",
+   " - راديو",
+  "💳・بطاقة بقالة・",
+  "💳・بطاقة بنك",
+  "💳『・بطاقة محل مجوهرات・",
+  "لايوجد شي ",
+    "لايوجد شي",
+  ]
+  let sazz = Math.floor(Math.random() * x.length)
+  const embed = new Discord.MessageEmbed()
+ .setAuthor(client.user.username, client.user.avatarURL())
+ .setColor("random")
+.setDescription(`\`\`\`${s[saz]}\`\`\``)
+.setFooter("عندك 15 ثانيه لفك الشفره")
+.setTimestamp()
+  message.channel.send(embed)
+ const filter = m => m.content.includes(s[saz]);
+message.channel.awaitMessages(filter, {
+          max: 1,
+          time: 15000,
+          errors: ['time'],
+        }) 
+
+.then((collected) => {
+const embed = new Discord.MessageEmbed()
+.setColor("#05ff14")
+.setDescription(`\`\`\`${x[sazz]}\`\`\``)
+.setFooter("✅ | تم السرقة بنجاح ")
+message.channel.send(embed)
+})
+.catch(() => {
+const embed = new Discord.MessageEmbed()
+.setColor("RED") 
+.setDescription(`:x: | فشلت العمليه السرقه - لقد تم تحديد هويتك`)
+.setFooter(`المجرم: ${message.author.tag} `)
+message.channel.send(embed)
+});    
+}
+
+if(message.content === prefix + "سرقة"){
+b = [
+   "819bn1",
+  "9m6b1a",
+  "9m1a3v",
+  "91a8aq",
+  "91m1as",
+  "91mnk1",
+
+
+  ]
+  let dastar = Math.floor(Math.random() * d.length)
+ p = [
+   "لايوجد شي",
+    "💵 - 100﷼",
+    "💵 - 200﷼",
+  "💵 - 300﷼",
+  "💵 - 400﷼",
+  "💵 -500﷼",
+  "💵 - 600﷼",
+  "💵 - 700﷼",
+  "💵 - 800﷼",
+  "💵 - 900﷼",
+  "💵 - 1000﷼",
+  "💵 - 2000﷼",
+   "💵 - 3000﷼",
+   "💵 - 7000﷼",
+   "🔧 - فاتح اقفال",
+  "🔧 - فاتح اقفال متقدم",
+  "🔫 - pistol",
+   " - راديو",
+  "💳・بطاقة بقالة・",
+  "💳・بطاقة بنك",
+  "💳『・بطاقة محل مجوهرات・",
+  "لايوجد شي ",
+    "لايوجد شي",
+
+  ]
+dastar = Math.floor(Math.random() * p.length)
+  const embed = new Discord.MessageEmbed()
+ .setAuthor(client.user.username, client.user.avatarURL())
+ .setColor("random")
+.setDescription(`\`\`\`${d[dastar]}\`\`\``)
+.setFooter("عندك 15 ثانيه لفك الشفره")
+.setTimestamp()
+  message.channel.send(embed)
+ const filter = m => m.content.includes(d[dastar]);
+message.channel.awaitMessages(filter, {
+          max: 1,
+          time: 15000,
+          errors: ['time'],
+        }) 
+
+.then((collected) => {
+const embed = new Discord.MessageEmbed()
+.setColor("#05ff14")
+.setDescription(`\`\`\`${d[dastar]}\`\`\``)
+.setFooter("✅ | تم السرقة بنجاح")
+message.channel.send(embed)
+})
+.catch(() => {
+const embed = new Discord.MessageEmbed()
+.setColor("RED") 
+.setDescription(`:x: | فشلت العمليه السرقه - لقد تم تحديد هويتك`)
+.setFooter(`المجرم: ${message.author.tag}`)
+message.channel.send(embed)
+});    
+}
+})
+
+
+client.login(process.env.token);
